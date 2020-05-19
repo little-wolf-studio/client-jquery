@@ -1,0 +1,45 @@
+{
+  "name": "client-jquery",
+  "version": "1.0.0",
+  "description": "A jQuery based client for the Kubernetes API",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --loglevel error --write './src/**/*.ts'",
+    "lint": "tslint --project \".\" && prettier --check './src/**/*.ts'",
+    "clean": "rm -Rf node_modules/ dist/",
+    "build": "tsc",
+    "generate": "./generate-client.sh",
+    "watch": "tsc --watch",
+    "test": "nyc mocha",
+    "prepare": "npm run build",
+    "docs": "typedoc src/gen/api && npm run doc:publish",
+    "doc:publish": "gh-pages -m \"[ci skip] Updates\" -d docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/little-wolf-studio/client-jquery.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/little-wolf-studio/client-jquery/issues"
+  },
+  "homepage": "https://github.com/little-wolf-studio/client-jquery#readme",
+  "devDependencies": {
+    "@types/jquery": "^3.3.38",
+    "gh-pages": "^2.2.0",
+    "mocha": "^7.1.2",
+    "nyc": "^15.0.1",
+    "prettier": "^2.0.5",
+    "source-map-support": "^0.5.19",
+    "ts-node": "^8.10.1",
+    "tslint": "^6.1.2",
+    "typedoc": "^0.17.7"
+  },
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "jquery": "^3.5.1",
+    "request": "^2.88.2",
+    "typescript": "^3.9.2"
+  }
+}
